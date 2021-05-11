@@ -1,0 +1,27 @@
+version: "2.0"
+
+stories:
+
+# - story: happy path
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: reserve_table
+#   - action: utter_ask_numseats  
+#   - intent: number_of_seats
+#     entities:
+#     - numseats: "2"
+#   - slot_was_set:
+#     - numseats: "2"
+#   - action: utter_ask_section
+#   - intent: section
+#     entities:
+#     - section: "AC"
+#   - slot_was_set:
+#     - section: "AC"
+#   - action: utter_ask_time
+#   - intent: time
+#     entities:
+#     - time: "7pm"
+#   - slot_was_set:
+#     - time: "7pm"

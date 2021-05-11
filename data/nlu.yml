@@ -1,0 +1,91 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: reserve_table
+  examples: |
+    - i want a reserve a table for my stay
+    - I want to reserve a table
+    - i want to reserve a table
+    - i would like to reserve a table
+    - i would like to book a table
+    - need a table
+    - can you reserve a table?
+    - reserve table
+    - reserve the table
+    - reserve a table
+    - Reserve a table
+
+- intent: number_of_seats
+  examples: |
+    - 2 seats
+    - I would like to book 3 seats
+    - I would love to reserve two seats
+    - Reserve ten seats 
+
+- intent: section
+  examples: | 
+    - [AC]{"entity":"section"}
+    - [Non-AC]{"entity":"section"}
+
+- intent: time
+  examples: |
+    - at 7:30 pm
+    - at 7:00 pm
+    - 8:00 am
+
+- intent: faq/timings
+  examples: |
+    - What are your timings?
+    - What are the timings of the resturant?
+    - what time are you open?
+
+- intent: faq/open_days
+  examples: |
+    - What days are you open?
+    - On which days will the resturant be open?
+
+- intent: faq/cancel
+  examples: |
+    - How do I cancel a reservation?
+    - Can I cancel a reservation?
+    - I want to cancel my reservation
+
+- intent: faq/special
+  examples: |
+    - What are the specials?
+    - What is the speciality of this resturant?
+    - What is the most special dish here?
+
+
+
+
+

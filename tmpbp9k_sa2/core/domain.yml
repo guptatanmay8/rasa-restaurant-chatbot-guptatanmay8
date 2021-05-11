@@ -1,0 +1,86 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- faq:
+    is_retrieval_intent: true
+    use_entities: []
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- reserve_table:
+    use_entities: true
+- number_of_seats:
+    use_entities: true
+- section:
+    use_entities:
+    - section
+- time:
+    use_entities: true
+entities:
+- number
+- section
+- time
+slots:
+  number:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  section:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  time:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_faq/timings:
+  - text: The restaurant opens at 7pm and closes at 10pm.
+  utter_faq/open_days:
+  - text: The restaurant is open each and every day.
+  utter_faq/cancel:
+  - text: To cancel a reservation, simply call us at +91 9876543210 and cancel your reservation
+  utter_faq/special:
+  - text: Our chef is a master of the Italian cuisine. Our core speciality is our pasta, which is renowned throughout the city.
+  utter_greet:
+  - text: Hey there! How may I help you?
+  utter_goodbye:
+  - text: Bye
+  utter_ask_number:
+  - text: How many seats would you like to reserve
+  utter_ask_section:
+  - text: Which section would you like to book
+    buttons:
+    - title: AC
+      playload: /section
+    - title: Non-AC
+      playload: /section
+  utter_ask_time:
+  - text: When would you like to book a reservation(We are only open from 7pm to 10pm)
+  utter_final_details:
+  - text: You have reserved {Num_seats} seats in our {Section} section for {Time}. Thanks!
+actions:
+- action_submit
+- utter_faq
+- validate_resturant_form
+forms:
+  resturant_form:
+    required_slots:
+      number:
+      - type: from_entity
+        entity: number
+      section:
+      - type: from_entity
+        entity: section
+      time:
+      - type: from_entity
+        entity: time
+e2e_actions: []

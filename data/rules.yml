@@ -1,0 +1,29 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: activate resturant form
+  steps:
+  - intent: reserve_table
+  - action: resturant_form
+  - active_loop: resturant_form
+
+- rule: submit form
+  condition:
+  - active_loop: resturant_form
+  steps:
+  - action: resturant_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_submit
+
+- rule: faq
+  steps:
+  - intent: faq
+  - action: utter_faq

@@ -31,7 +31,7 @@ pipeline:
     dimensions: ["time","number"]
     # if not set the default timezone of Duckling is going to be used
     # needed to calculate dates from relative expressions like "tomorrow"
-    timezone: "Asia/Mumbai"
+    timezone: "Asia/Kolkata"
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
@@ -40,8 +40,8 @@ policies:
 # # If you'd like to customize them, uncomment and adjust the policies.
 # # See https://rasa.com/docs/rasa/policies for more information.
   - name: MemoizationPolicy
-  - name: TEDPolicy
-    max_history: 5
-    epochs: 100
-    constrain_similarities: true
+  # - name: TEDPolicy
+  #   max_history: 5
+  #   epochs: 100
+  #   constrain_similarities: true
   - name: RulePolicy

@@ -29,9 +29,6 @@ class ResturantForm(Action):
         
         return[SlotSet("requested_slot",None)]
 
-
-        # dispatcher.utter_message(text="Hello World!")
-
         return []
 
 class Validate_resturant_form(FormValidationAction):
@@ -49,8 +46,8 @@ class Validate_resturant_form(FormValidationAction):
 
 
     def validate_section(self,slot_value: Any , dispatcher: CollectingDispatcher, tracker: Tracker, domain:Dict) -> Dict[Text, Any]:
-        list = ["AC" , "Non-AC" , "ac" , "non-ac"]
-        if slot_value not in list:
+        list = ["AC","NON-AC"]
+        if slot_value.upper() not in list:
             dispatcher.utter_message(text="Please put a valid section")
             return{"section":None}
         
@@ -58,6 +55,7 @@ class Validate_resturant_form(FormValidationAction):
             return{"section":slot_value}
 
     def validate_time(self,slot_value: Any , dispatcher: CollectingDispatcher, tracker: Tracker, domain:Dict) -> Dict[Text, Any]:
+        
         hour = int(slot_value[11:13])
         minutes = int(slot_value[14:16])
 
@@ -79,6 +77,7 @@ class ActionSubmit(Action):
     def name(self) -> Text:
         return "action_submit"
     
-    def run(self,dispatcher,tracker: Tracker, domain: "DomainDict",) -> List[Dict[Text,Any]]:
+    def run(self,dispatcher,tracker: Tracker, domain: "DomainDict",) -> List[EventType]:
         dispatcher.utter_message(template="utter_final_details",Num_seats=tracker.get_slot("number"),Section = tracker.get_slot("section"),Time = tracker.get_slot("time"))
-
+        
+        

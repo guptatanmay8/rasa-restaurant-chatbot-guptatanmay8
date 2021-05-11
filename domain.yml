@@ -27,7 +27,7 @@ slots:
   number:
     type: any
   section:
-    type: text
+    type: any
   time:
     type: any
 
@@ -58,9 +58,9 @@ responses:
     - text: Which section would you like to book
       buttons:
         - title: "AC"
-          playload: "/section"
+          payload: /section{{"section":"AC"}}
         - title: "Non-AC"
-          playload: "/section"
+          payload: /section{{"section":"AC"}}
 
   utter_ask_time:
     - text: When would you like to book a reservation(We are only open from 7pm to 10pm)

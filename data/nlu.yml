@@ -32,17 +32,20 @@ nlu:
 
 - intent: reserve_table
   examples: |
-    - i want a reserve a table for my stay
     - I want to reserve a table
-    - i want to reserve a table
+    - i want to reserve a table  for 5
+    - I want to book a table for 5 at 6:00 pm
+    - I want to reserve a table in [Non-AC]{"entity":"section"} Section
+    - Book 5 seats at 7:00 pm in [AC]{"entity":"section"} section
+    - Reserve 8 seats
+    - Book 10 seats in [Non-AC]{"entity":"section"} section
+    - Book a table in [ac]{"entity":"section"}
+    - Reserve 10 seats in half an hour
     - i would like to reserve a table
     - i would like to book a table
     - need a table
     - can you reserve a table?
     - reserve table
-    - reserve the table
-    - reserve a table
-    - Reserve a table
 
 - intent: number_of_seats
   examples: |
